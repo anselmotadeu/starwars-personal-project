@@ -39,7 +39,7 @@ const LIST = [
         nome: 'C3pO',
         avatar: 'images/c3po.png'
     }
-]
+];
 
 const App = new Vue({
     el: '#app',
@@ -51,39 +51,34 @@ const App = new Vue({
     },
     methods: {
         like(userName) {
-            alert(`O personagem ${userName} recebeu um like!`)
+            alert(`O personagem ${userName} recebeu um like!`);
         },
-        remove(id) {
-            const list = this.characters
-
+        remover(id) {
+            const list = this.characters;
             const result = list.filter(item => {
-                return item.id !== id
-            })
-
-            this.characters = result
-            console.log(this.remove)
+                return item.id !== id;
+            });
+            this.characters = result;
+            console.log(this.characters);
         },
         search() {
-
             if (this.searchName === '') {
-              return alert('O campo de busca é obrigatório')
+              return alert('O campo de busca é obrigatório');
             }
 
-            const list = this.characters = LIST
-
+            const list = LIST;
             const result = list.filter(item => {
-                return item.nome === this.searchName
-            })
+                return item.nome === this.searchName;
+            });
 
-            console.log(searchName)
-            console.log(result)
-            console.error()            
+            console.log(this.searchName);
+            console.log(result);
 
             if (result.length <= 0) {
-                alert('Nenhum registro encontrado.')
+                alert('Nenhum registro encontrado.');
             } else {
-                this.characters = result
+                this.characters = result;
             }
         }
     }
-})
+});
