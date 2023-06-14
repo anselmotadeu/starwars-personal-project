@@ -16,13 +16,14 @@
 
         <div class="top">
             <div>
-                <h1>{{ title }}</h1>
+                <h1 @click="goToHome">{{ title }}</h1>
                 <small>Seja {{ userName }}</small>
             </div>
     
-            <form>
-                <input type="placeholder" placeholder="Busca por nome..." v-modal="searchName"/>
-                <button type="button" @click="search()">Buscar</button>
+            <form @submit.prevent="search">
+                <input type="text" placeholder="Busca por nome..." v-model="searchName"/>
+                <button type="submit">Buscar</button>
+                <button type="button" v-if="showClearButton" @click="clearSearch">Limpar</button>
             </form>
 
         </div>
@@ -30,15 +31,15 @@
         <div class="characters">
             <div class="item" v-for="item of characters">
                 <img :src="item.avatar" :alt="item.nome" />
-            <p>{{ item.nome }}</p>
-            <span @click="like(item.nome)" class="like material-symbols-outlined">
-                favorite
-            </span>
-            <span @click="remover(item.id)" class="delete material-symbols-outlined">
-                delete
-            </span>
+                <p>{{ item.nome }}</p>
+                <span @click="like(item)" class="like material-symbols-outlined">
+                    favorite
+                </span>
+                <span @click="remover(item.id)" class="delete material-symbols-outlined">
+                    delete
+                </span>
+            </div>
         </div>
-    </div>
 
     </div>
 

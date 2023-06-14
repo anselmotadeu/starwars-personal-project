@@ -27,6 +27,7 @@ body {
    margin: 0;
    color: #fff;
    font-family: 'Acme', sans-serif;
+   cursor: pointer; /* Adicionado */
 }
 
 .top form {
@@ -66,6 +67,20 @@ body {
    cursor: pointer;
 }
 
+.like.clicked {
+   animation: heartFill 0.5s forwards;
+ }
+ 
+ @keyframes heartFill {
+   0% {
+     color: #FD4;
+   }
+   100% {
+     color: red;
+   }
+ }
+ 
+
 input {
    padding: 0.75em 1.25em;
    border-radius: 8px;
@@ -84,4 +99,3 @@ button {
    cursor: pointer;
    font-family: 'Handlee', cursive;
 }
-
