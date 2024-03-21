@@ -66,10 +66,14 @@ const LIST = [
         this.resetSearch();
       },
       like(item) {
-        alert(`O personagem ${item.nome} recebeu um like!`);
-        item.liked = true;
-        const clickedHeart = event.target;
-        clickedHeart.classList.add('clicked');
+        if (item.liked) {
+          alert(`O personagem ${item.nome} já recebeu um like!`);
+        } else {
+          alert(`O personagem ${item.nome} recebeu um like!`);
+          item.liked = true;
+          const clickedHeart = event.target;
+          clickedHeart.classList.add('clicked');
+        }
       },
       remover(id) {
         this.characters = this.characters.filter(item => item.id !== id);

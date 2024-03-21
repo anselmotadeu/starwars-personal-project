@@ -21,8 +21,12 @@ const app = new Vue({
     },
     methods: {
         like(character) {
-            character.liked = !character.liked;
-            alert(`Você ${character.liked ? 'curtiu' : 'descurtiu'} o personagem ${character.nome}`);
+            if (character.liked) {
+                alert(`O personagem ${character.nome} já recebeu um like`);
+            } else {
+                character.liked = true;
+                alert(`Você curtiu o personagem ${character.nome}`);
+            }
         },
         deleteCharacter() {
             // remove o personagem da lista
