@@ -2,42 +2,50 @@ const LIST = [
     {
       id: 1,
       nome: 'Mestre Yoda',
-      avatar: 'images/yoda.png'
+      avatar: 'images/yoda.png',
+      liked: false
     },
     {
       id: 2,
       nome: 'Luke Skywalker',
-      avatar: 'images/luke.png'
+      avatar: 'images/luke.png',
+      liked: false
     },
     {
       id: 3,
       nome: 'Princesa Leia',
-      avatar: 'images/leia.png'
+      avatar: 'images/leia.png',
+      liked: false
     },
     {
       id: 4,
       nome: 'Han Solo',
-      avatar: 'images/hansolo.png'
+      avatar: 'images/hansolo.png',
+      liked: false
     },
     {
       id: 5,
       nome: 'Darth Vader',
-      avatar: 'images/vader.png'
+      avatar: 'images/vader.png',
+      liked: false
     },
     {
       id: 6,
       nome: 'Chewbacca',
-      avatar: 'images/chewbacca.png'
+      avatar: 'images/chewbacca.png',
+      liked: false
     },
     {
       id: 7,
       nome: 'R2D2',
-      avatar: 'images/r2d2.png'
+      avatar: 'images/r2d2.png',
+      liked: false
     },
     {
       id: 8,
       nome: 'C3pO',
-      avatar: 'images/c3po.png'
+      avatar: 'images/c3po.png',
+      liked: false
     }
   ];
   
@@ -46,7 +54,7 @@ const LIST = [
     data: {
       title: 'Star Wars Lego',
       userName: 'bem-vindo',
-      characters: LIST,
+      characters: LIST.map(character => ({ ...character, liked: false })),
       searchName: '',
       showClearButton: false,
       searchResult: [],
@@ -59,6 +67,7 @@ const LIST = [
       },
       like(item) {
         alert(`O personagem ${item.nome} recebeu um like!`);
+        item.liked = true;
         const clickedHeart = event.target;
         clickedHeart.classList.add('clicked');
       },
