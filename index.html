@@ -29,7 +29,7 @@
         </div>
 
         <div class="characters">
-            <div class="item" v-for="item of characters">
+            <div class="item" v-for="item of characters" :class="{ liked: item.liked }">
                 <img :src="item.avatar" :alt="item.nome" />
                 <p>{{ item.nome }}</p>
                 <span @click="like(item)" class="like material-symbols-outlined">
@@ -44,6 +44,6 @@
     </div>
 
     <script type="text/javascript" src="js/vue.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>   
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
