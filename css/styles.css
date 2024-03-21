@@ -67,9 +67,9 @@ body {
    cursor: pointer;
 }
 
-.like.clicked {
+.item.liked .like {
    animation: heartFill 0.5s forwards;
- }
+}
  
  @keyframes heartFill {
    0% {
